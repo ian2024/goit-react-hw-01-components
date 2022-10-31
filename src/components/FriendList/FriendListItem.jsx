@@ -3,7 +3,7 @@ import css from './FriendList.module.css';
 
 const FriendListItem = ({ isOnline, name, avatar }) => {
   return (
-            <li className={css.item}>
+            <>
             <span
               className={css.status}
               style={{ backgroundColor: isOnline ? 'green' : 'red' }}
@@ -15,10 +15,11 @@ const FriendListItem = ({ isOnline, name, avatar }) => {
               width="48"
             />
             <p>{name}</p>
-          </li>
+          </>
         );
       }
 
+export default FriendListItem;
 
 FriendListItem.propTypes = {
   avatar: PropTypes.string.isRequired,
