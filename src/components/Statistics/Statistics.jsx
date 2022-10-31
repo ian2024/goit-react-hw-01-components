@@ -1,7 +1,8 @@
 import css from './Statistics.module.css';
 import PropTypes from 'prop-types';
+import StatItem from './StaticsItem';
 
-export default function Statistics({ title, stats }) {
+function Statistics({ title, stats }) {
   return (
     <div className={css.statistics}>
       {title && <h2 className={css.title}>{title}</h2>}
@@ -10,8 +11,7 @@ export default function Statistics({ title, stats }) {
         {stats.map(({ id, label, percentage }) => {
           return (
             <li key={id} className={css.item}>
-              <span className={css.label}>{label}</span>
-              <span className={css.percentage}>{percentage}%</span>
+              <StatItem label={label} percentage={percentage} />
             </li>
           );
         })}
@@ -19,6 +19,8 @@ export default function Statistics({ title, stats }) {
     </div>
   );
 }
+
+export default Statistics;
 
 Statistics.propTypes = {
   title: PropTypes.string,
