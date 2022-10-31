@@ -6,7 +6,7 @@ export default function FriendList({ friends }) {
     <ul className={css['friend-list']}>
       {friends.map(({ id, name, avatar, isOnline }) => {
         return (
-          <li className={css.item} key={id}>
+        <li className={css.item} key={id}>
             <span
               className={css.status}
               style={{ backgroundColor: isOnline ? 'green' : 'red' }}
@@ -28,10 +28,10 @@ export default function FriendList({ friends }) {
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
-      avatar: PropTypes.string,
-      name: PropTypes.string,
-      isOnline: PropTypes.bool,
-      id: PropTypes.number,
-    })
-  ),
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired,
 };
